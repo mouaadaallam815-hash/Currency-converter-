@@ -1,0 +1,18 @@
+{
+  "name": "Currency Converter - Exchange Rates",
+  "short_name": "Currency",
+  "description": "Multilingual currency converter with regularly refreshed indicative exchange rates.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#123c68",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
