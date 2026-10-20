@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123c68">
+  <meta name="description" content="Free multilingual currency converter with regularly updated exchange rates.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Currency Converter</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">↔</div>
+        <div>
+          <h1 data-i18n="appName">Currency Converter</h1>
+          <p data-i18n="tagline">أسعار الصرف بين يديك</p>
+        </div>
+      </div>
+      <select id="language" aria-label="Language">
+        <option value="ar">العربية</option>
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+    </header>
+
+    <section class="intro">
+      <span class="eyebrow" data-i18n="eyebrow">تحويل العملات</span>
+      <h2 data-i18n="headline">حوّل العملات بسهولة</h2>
+      <p data-i18n="subheadline">أسعار مرجعية يتم تحديثها عبر الإنترنت.</p>
+    </section>
+
+    <section class="converter card" aria-label="Currency converter">
+      <label for="amount" data-i18n="amountLabel">المبلغ</label>
+      <input id="amount" type="number" inputmode="decimal" min="0" step="any" value="100" autocomplete="off">
+
+      <div class="currency-row">
+        <div class="currency-field">
+          <label for="from" data-i18n="fromLabel">من</label>
+          <select id="from"></select>
+        </div>
+        <button id="swap" class="swap" type="button" title="Swap currencies" aria-label="Swap currencies">⇄</button>
+        <div class="currency-field">
+          <label for="to" data-i18n="toLabel">إلى</label>
+          <select id="to"></select>
+        </div>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <div class="result-label" data-i18n="resultLabel">المبلغ المحوّل</div>
+        <output id="result">—</output>
+        <p id="equation" class="equation"></p>
+      </div>
+
+      <button id="refresh" class="primary" type="button">
+        <span aria-hidden="true">⟳</span>
+        <span data-i18n="refresh">تحديث الأسعار</span>
+      </button>
+      <p id="status" class="status" role="status" data-i18n="loading">جارٍ تحميل أسعار الصرف…</p>
+    </section>
+
+    <section class="rates card">
+      <div class="section-heading">
+        <div>
+          <h2 data-i18n="popularTitle">أسعار شائعة</h2>
+          <p data-i18n="popularSubtitle">مقابل الدرهم المغربي</p>
+        </div>
+        <span class="live-dot" aria-hidden="true"></span>
+      </div>
+      <div id="popularRates" class="rate-list"></div>
+    </section>
+
+    <footer>
+      <p data-i18n="disclaimer">الأسعار إرشادية وقد تختلف عن أسعار البنوك ومكاتب الصرافة. لا يُنفّذ التطبيق أي معاملات مالية.</p>
+      <p><span data-i18n="sourceLabel">مصدر الأسعار:</span> <a href="https://www.exchangerate-api.com/" target="_blank" rel="noopener noreferrer">ExchangeRate-API (Open Access)</a></p>
+      <p id="updatedAt"></p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
